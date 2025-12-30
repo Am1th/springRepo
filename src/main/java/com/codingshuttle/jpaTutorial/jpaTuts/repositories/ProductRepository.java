@@ -30,8 +30,8 @@ public interface ProductRepository extends JpaRepository<ProductEntity,Long> {
 
 //    Optional<ProductEntity> findByTitleAndPrice(String title, BigDecimal price); // we can be sure there will be only one ProductEntity (and not list of entities) with a particular title and price as we wrote unique constraint
 
-//    @Query("select e from ProductEntity e where e.title=?1 and e.price=?2") //name of the field that JPQL understands is title only,  later this title will be converted to title_x by hibernate(JPQL understands java only)
-    @Query("select e.title from ProductEntity e where e.title=:title and e.price=:price")
+    @Query("select e from ProductEntity e where e.title=?1 and e.price=?2") //name of the field that JPQL understands is title only,  later this title will be converted to title_x by hibernate(JPQL understands java only)
+//    @Query("select e.title from ProductEntity e where e.title=:title and e.price=:price") if we write this return type should be Optional<String>
     Optional<ProductEntity> findByTitleAndPrice(String title,BigDecimal price);
 
 }
